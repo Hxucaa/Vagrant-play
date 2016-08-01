@@ -2,7 +2,8 @@
 
 #variables
 activatorVersion="1.3.10"
-sbtVersion="0.13.11"
+sbtVersion="0.13.12"
+scalaVersion="2.11.8"
 
 echo "=========================================="
 echo "Provision VM START"
@@ -48,7 +49,8 @@ sudo apt-get -y install git
 ###############################################
 # Install Scala
 ###############################################
-sudo apt-get -y install scala
+wget www.scala-lang.org/files/archive/scala-$scalaVersion.deb
+sudo dpkg -i scala-$scalaVersion.deb
 
 ###############################################
 # Install Unzip
@@ -70,9 +72,9 @@ echo "export NODE_PATH=/usr/local/lib/node_modules" >> ~/.bashrc
 sudo apt-get -y install npm
 
 ###############################################
-# Install CoffeeScript
+# Install TypeScript
 ###############################################
-sudo npm install -g coffee-script
+npm install -g typescript
 
 ###############################################
 # Install Bower
@@ -166,11 +168,11 @@ echo " "
 echo "NodeJS version:"
 node -v
 echo " "
+echo "TypeScript version:"
+typescript -v
+echo " "
 echo "NPM version"
 npm -v
-echo " "
-echo "CoffeeScript version:"
-coffee -v
 echo " "
 echo "Bower version:"
 bower -v
